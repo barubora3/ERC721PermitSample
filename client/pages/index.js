@@ -61,10 +61,11 @@ export default function Home() {
       alchemyApiKey +
       "/getNFTs?owner=" +
       address +
-      "&contractAddress=" +
+      "&contractAddresses[]=" +
       contractAddress +
       "&withMetadata=false";
     const res = await axios.get(apiUrl);
+    console.log(apiUrl);
     console.log(res);
 
     const tokenIdList = res.data.ownedNfts.map((nft) => Number(nft.id.tokenId));
@@ -197,7 +198,7 @@ export default function Home() {
                 href="https://goerli.etherscan.io/address/0x61d5ee64b2308bee9ae5ae578b99e078adc400e8#writeProxyContract"
                 target={"_blank"}
               >
-                Mint on Etherscan (Click Here and Execute "mint")
+                Mint on Etherscan (Click Here and Execute &quot;mint&quot;)
               </a>
             </center>
           )}
